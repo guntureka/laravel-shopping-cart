@@ -3,7 +3,7 @@
 @section('title', 'Shopping Cart')
 
 @section('content')
-<h1 class="text-xl font-bold mb-4">Shopping Cart</h1>
+<h1 class=" text-center font-regular text-4xl my-10">Troli Anda</h1>
 
 {{-- Add item --}}
 <form action="{{ route('carts.store') }}" method="POST" class="mb-6">
@@ -24,11 +24,11 @@
 <table class="w-full border border-collapse">
     <thead class="bg-gray-200">
         <tr>
-            <th class="p-2 text-left">Product</th>
-            <th class="p-2 text-left">Qty</th>
-            <th class="p-2 text-left">Price</th>
-            <th class="p-2 text-left">Total</th>
-            <th class="p-2"></th>
+            <th class="p-2 text-left">PRODUK</th>
+            <th class="p-2 text-left">PILIHAN HARGA</th>
+            <th class="p-2 text-left">KUANTITAS</th>
+            <th class="p-2 text-left">SUBTOTAL</th>
+            <th class="p-2">HAPUS</th>
         </tr>
     </thead>
     <tbody>
@@ -44,6 +44,8 @@
                     <span class="text-sm">{{ $item->product->code }}</span>
                 </div>
             </td>
+
+            <td class="p-2">Rp {{ number_format($item->product->price, 0, ',', '.') }}</td>
             <td class="p-2">
                 <div class="flex items-center">
                     {{-- Kurangi quantity --}}
@@ -71,7 +73,6 @@
                     </form>
                 </div>
             </td>
-            <td class="p-2">Rp {{ number_format($item->product->price, 0, ',', '.') }}</td>
             <td class="p-2">Rp {{ number_format($item->product->price * $item->quantity, 0, ',', '.') }}</td>
             <td class="p-2">
                 <form action="{{ route('carts.destroy', $item) }}" method="POST" class="inline ml-2"
