@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\controllers\ProductController;
-use App\Http\controllers\DiscountController;
-use App\Http\controllers\CartController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\CartController;
+
 
 
 Route::get('/', function () {
